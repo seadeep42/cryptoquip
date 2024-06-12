@@ -1,0 +1,26 @@
+{
+  "name": "cryptoquip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite serve src --mode development --host 0.0.0.0 --port 3000 --config vite.config.js",
+    "build": "vite build src --config vite.config.js",
+    "preview": "vite preview",
+    "publish": "gh-pages -d dist",
+    "prettier": "prettier --write '{src,cron}/**/*.{js,jsx}'"
+  },
+  "engines": {
+    "node": "20.10.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^6.1.1",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.77.5",
+    "vite": "^5.2.13"
+  }
+}
