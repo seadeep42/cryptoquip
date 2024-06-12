@@ -26,15 +26,16 @@ body {
   font-family: "IBM Plex Sans", sans-serif;
 }
 
-.line, .substituted-line {
+.line {
   font-family: "IBM Plex Mono", "monospace";
   width: auto;
   white-space: nowrap;
   text-transform: uppercase;
   overflow-x: visible;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   letter-spacing: 2px;
   line-height: 1.7;
+  display: flex;
 }
 
 .substituted-line {
@@ -42,11 +43,15 @@ body {
 }
 
 .puzzle {
+  overflow-x: auto;
+}
+
+.puzzle-inner {
   display: flex;
   flex-direction: column;
   overflow-x: auto;
   align-items: center;
-  width: auto;
+  width: min-content;
 }
 
 .substitutions {
@@ -57,9 +62,10 @@ body {
   justify-content: center;
 }
 
-.letter-item {
+.letter {
   text-transform: uppercase;
   padding: 5px;
+  text-align: center;
   input {
     width: 30px;
     padding: 10px 0;

@@ -13,8 +13,8 @@ VYNF WXJGPYG AYOX VDKKFLJ'?`);
 
   const lines = sourceText.split("\n");
   return (
-    <>
-      <div className="puzzle">
+    <div className="puzzle">
+      <div className="puzzle-inner">
         {_.map(lines, line => {
           const lineLetters = _.map(_.split(line, ""), _.toLower);
           const substitutedLineLetters = _.map(lineLetters, l => {
@@ -24,35 +24,56 @@ VYNF WXJGPYG AYOX VDKKFLJ'?`);
             return l;
           })
           return (
-            <>
-              <div className="line">
-                {
-                  _.map(lineLetters, l => l)
-                }
-              </div>
-              <div className="substituted-line">
-                {
-                  _.map(substitutedLineLetters, l => l)
-                }
-              </div>
-            </>
+            <div key={line} className="line">
+              {
+                _.map(lineLetters, (l, index) => {
+                  const lowerLetter = _.toLower(l);
+                  if(!_.includes(letters, lowerLetter)) {
+                    return (
+                      <div className="letter" key={`${lowerLetter}-${index}`}>
+                        {l}<br/>{l}
+                      </div>
+                    );
+                  }
+                  return (
+                    <div className="letter" key={`${lowerLetter}-${index}`}>
+                      {l}<br/>
+                      <input value={letterSubstitutions[lowerLetter] || ""} onChange={e => setLetterSubstitutions({
+                        ...letterSubstitutions,
+                        [l]: e.target.value,
+                      })}/>
+                    </div>
+                  );
+                })
+              }
+              {/*<div className="line">*/}
+              {/*  {*/}
+              {/*    _.map(lineLetters, l => l)*/}
+              {/*  }*/}
+              {/*</div>*/}
+              {/*<div className="substituted-line">*/}
+              {/*  {*/}
+              {/*    _.map(substitutedLineLetters, l => l)*/}
+              {/*  }*/}
+              {/*</div>*/}
+            </div>
           )
         })}
       </div>
-      <div className="substitutions">
-        {
-          _.map(letters, l => (
-            <div className="letter-item">
-              {l}<br />
-              <input value={letterSubstitutions[l] || "" } onChange={e => setLetterSubstitutions({
-                ...letterSubstitutions,
-                [l]: e.target.value,
-              })} />
-            </div>
-          ))
-        }
-      </div>
-    </>
+      {/*<div className="substitutions">*/}
+      {/*  {*/}
+      {/*    _.map(letters, l => (*/}
+      {/*      <div className="letter-item" key={l}>*/}
+      {/*        {l}<br />*/}
+      {/*        <input value={letterSubstitutions[l] || "" } onChange={e => setLetterSubstitutions({*/}
+      {/*          ...letterSubstitutions,*/}
+      {/*          [l]: e.target.value,*/}
+      {/*        })} />*/}
+      {/*      </div>*/}
+      {/*    ))*/}
+      {/*  }*/}
+      {/*</div>*/}
+    </div>
   );
 }
 
