@@ -35,6 +35,13 @@ VYNF WXJGPYG AYOX VDKKFLJ'?`);
                       </div>
                     );
                   }
+                  // if(lowerLetter === " ") {
+                  //   return (
+                  //     <div className="letter" key={`${lowerLetter}-${index}`}>
+                  //       &emsp;<br/>&emsp;
+                  //     </div>
+                  //   );
+                  // }
                   return (
                     <div className="letter" key={`${lowerLetter}-${index}`}>
                       {l}<br/>

@@ -36,14 +36,20 @@ body {
   letter-spacing: 2px;
   line-height: 1.7;
   display: flex;
+  margin-bottom: 40px;
 }
 
 .substituted-line {
   margin-bottom: 30px;
 }
 
+
 .puzzle {
   overflow-x: auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .puzzle-inner {
